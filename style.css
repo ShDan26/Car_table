@@ -1,0 +1,27 @@
+body{
+    background-color: #05090e;
+}
+
+#pagination {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+  }
+
+  #pagination button {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 6px 12px;
+    margin: 2px;
+    cursor: pointer;
+  }
+
+  #pagination button:hover {
+    background-color: #696767;
+  }
+
+  #pagination button[style='font-weight: bold;'] {
+    background-color: #25292c;
+    color: #fff};
+
+   

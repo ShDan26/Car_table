@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script defer src="./index.js"></script>
+   <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+    <title>Cars table</title>
+</head>
+<body>
+    <h1  style="color: #fff;" class="text-center" >Pick your car! </h1>
+    <input class="form-control" type="text" placeholder="search" id="search-text" onkeyup="tableSearch()">
+  
+
+        <!--  add modal -->
+      
+        
+
+        <div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header bg-secondary text-white">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Add car</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body bg-dark-subtle text-emphasis-dark">
+                <input type="text" id="add-car-company" placeholder="Company">
+                <input type="text" id="add-car-vin" placeholder="VIN">
+                <input type="text" id="add-car-model" placeholder="Model">
+                <input type="text" id="add-car-year" placeholder="Year">
+                <input type="text" id="add-car-color" placeholder="Color">
+                <input type="text" id="add-car-price" placeholder="Price">
+                <select class="form-select" id="add-car-availability">
+                  <option  selected>Availability</option>
+                  <option value="Yes">Yes</option>
+                  <option value="No">No</option>
+                </select>
+              </div>
+              <div class="modal-footer bg-secondary text-white">
+  
+                <button  type="button" class="btn btn-primary bg-danger text-white" onclick="addCar()" data-bs-dismiss="modal">Сonfirm</button>
+                <button type="button" class="btn btn-secondary bg-dark text-white" data-bs-dismiss="modal">Сancel</button>
+              </div>
+            </div>
+          </div>
+        </div>
+   
+
+<!--  edit modal-->
+<div class="modal fade" id="edit-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary text-white ">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Edit</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="edit-body" class="modal-body bg-dark-subtle text-emphasis-dark">
+      </div>
+      <div class="modal-footer bg-secondary text-white">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary bg-warning text-dark">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- delete modal-->
+<div class="modal fade" id="delete-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-secondary text-white ">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body bg-dark-subtle text-emphasis-dark">
+        Are you sure you want to delete this car's data?
+      </div>
+      <div class="modal-footer bg-secondary text-white ">
+        <button type="button" class="btn btn-primary bg-danger text-white"  id="confirm-delete-btn" >YES</button>
+        <button type="button" class="btn btn-secondary bg-dark text-white" data-bs-dismiss="modal">NO</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+ 
+<!-- table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-dark table-striped table-hover " id="info-table">
+            <thead class="table-light  ">
+              <tr>
+                <th scope="col">Company</th>
+                <th scope="col">Model</th>
+                <th scope="col">VIN</th>
+                <th scope="col">Color</th>
+                <th scope="col">Year</th>
+                <th scope="col">Price</th>
+                <th scope="col">Availability</th>
+                <th scope="col">Actions columns</th>
+              </tr>
+            </thead>
+            <tbody id="table_body">
+            </tbody>
+          </table>
+          
+        </div>   
+       
+<!-- add button -->
+        <div id="add-car-container">
+          <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#add-modal"> Add car </button>
+        </div>
+        
+        
+          <!-- pagination -->
+        <div id="pagination"></div>
+</body>
+</html>
+     
+
+
+
+
